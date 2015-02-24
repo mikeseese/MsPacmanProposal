@@ -2679,7 +2679,7 @@ LE117: STA.wy $0083,Y
        STA    $B0     
        LDA    #$00    
        LDX    #$04    
-       JSR    LE9B0   
+       LDA    $1D00 ;JSR    LE9B0   
        LDX    $2124   
        LDA    LE3C6,X 
        STA    $2120   
