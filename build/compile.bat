@@ -1,0 +1,3 @@
+DASM MSPAC2.S -f3 -oMSPAC.bin -lMSPAC.lst
+78HDR MSPAC.bin MSPAC.a78 0000
+a78sign -f MSPAC.a78
