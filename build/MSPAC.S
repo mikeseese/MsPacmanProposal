@@ -2690,7 +2690,7 @@ LE117: STA.wy $0083,Y
        JSR    LE209   
 LE150: JSR    LCB25   
        LDA    $1D00   
-       BNE    LE150   
+       BVC    LE150   ;FOREVER LOOP AFTER END OF ANIMATION 
        RTS            
 
 LE159: LDX    $2124   
