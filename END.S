@@ -1,4 +1,5 @@
-
+     processor 6502
+     
 ;  END.S          CONTAINS THE END STATEMENT
 
 END       DB      'GCC(C)1984'           ;LABEL TO SEE WHERE END OF ROM IS

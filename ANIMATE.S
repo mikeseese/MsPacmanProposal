@@ -1,4 +1,5 @@
-
+     processor 6502
+     
 ;  ANIMATE.S      THE MS PAC MAN ANIMATIONS
 
 

@@ -1,3 +1,5 @@
+     processor 6502
+
 JU
 MNH:PAC;HIGH,R:$
 MNH:PAC;MDOIT,R:$

@@ -1,4 +1,5 @@
-
+     processor 6502
+     
 ;  FRUIT.S        ROUTINES FOR THE FRUIT
 
 

@@ -1,4 +1,5 @@
-
+     processor 6502
+     
 ;  MSDEF.S        MS PAC MAN SYMBOL DEFINITIONS
 ;  ADDRESS DEFINITIONS
 

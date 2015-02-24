@@ -1,4 +1,5 @@
-
+     processor 6502
+     
 ;  UTIL.S         GENERAL UTILITY ROUTINES
 
 

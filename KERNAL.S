@@ -1,4 +1,5 @@
-
+     processor 6502
+     
 ; KERNAL          THE KERNAL AND LOADER FOR MARIA MS PAC-MAN
 
 

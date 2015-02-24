@@ -1,3 +1,5 @@
+     processor 6502
+
 ;
 ;  MONSTER.S       BASIC MONSTER CODE FOR MS PAC-MAN
 ;

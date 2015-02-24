@@ -1,4 +1,5 @@
-
+     processor 6502
+     
 ;         MAIN ROUTINE FOR MS PAC MAN
 
 MAIN      LDA     #$17                   ;LOCK IN MARIA MODE

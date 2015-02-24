@@ -1,4 +1,5 @@
-
+     processor 6502
+     
 ; PATH.S          ROUTINES FOR PATH ANALYSIS IN MS PAC-MAN
 ;
 

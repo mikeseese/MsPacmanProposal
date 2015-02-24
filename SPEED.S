@@ -1,3 +1,5 @@
+     processor 6502
+
 ;
 ;  SPEED.S         SPEED REGISTER CODE
 ;

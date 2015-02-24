@@ -1,3 +1,5 @@
+     processor 6502
+
 JS
 ^L
 SW1

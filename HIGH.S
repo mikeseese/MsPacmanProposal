@@ -1,4 +1,5 @@
-
+     processor 6502
+     
 ;  HIGH           HIGH SCORE ROUTINES
 
 

@@ -1,4 +1,5 @@
-
+     processor 6502
+     
 ;  GETJOY.S
 ;  READ JOYSTICK DATA
 ;

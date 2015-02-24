@@ -1,4 +1,5 @@
-
+     processor 6502
+     
 ;  MSCHAR.S        CHARACTER SET FOR MS PAC MAN
 ;                 FIRST FILE TO BE LOADED TO MAKE SURE ALL GRAPHICS ON EVEN
 ;                 CHARACTERS

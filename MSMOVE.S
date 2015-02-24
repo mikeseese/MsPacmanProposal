@@ -1,4 +1,5 @@
-
+     processor 6502
+     
 ;  PAC.S          ROUTINES FOR THE MS PAC
 
 

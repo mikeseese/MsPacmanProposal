@@ -1,3 +1,4 @@
+     processor 6502
 
 ;  TITLE.S        ROUTINES TO CONTROL THE TITLE PAGE
 

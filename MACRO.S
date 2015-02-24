@@ -1,3 +1,5 @@
+     processor 6502
+
 FILL      MACRO   ADDR,DATA,COUNT        ;THIS FILLS AN AREA WITH A CONSTANT
           LDA     &DATA
           LDX     &COUNT
