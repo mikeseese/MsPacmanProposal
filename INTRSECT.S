@@ -1,10 +1,10 @@
-*
-* INTRSECT.S      PAC-FRUIT AND PAC-MONSTER INTERSECT ROUTINES
-*
+;
+; INTRSECT.S      PAC-FRUIT AND PAC-MONSTER INTERSECT ROUTINES
+;
 
-* PFINTR          PAC-FRUIT INTERSECT ROUTINE
-*         IN:
-*         USES:
+; PFINTR          PAC-FRUIT INTERSECT ROUTINE
+;         IN:
+;         USES:
 
 PFINTR
           LDA     FENABLE                ;MAKE SURE FRUIT ON
@@ -47,9 +47,9 @@ PFINTR2   LDY     TEMP0
 
 PFIEND    RTS
 
-* PMINTR          PAC-MONSTER INTERSECT ROUTINE
-*         IN:
-*         USES:
+; PMINTR          PAC-MONSTER INTERSECT ROUTINE
+;         IN:
+;         USES:
 
 PMINTR
           LDX     #3
@@ -102,9 +102,9 @@ PMIEND    DEX
           BPL     PMILOOP
           RTS
 
-*
-* MONDEATH        -MONSTER DEATH CODE
-*         IN      X IS MONSTER NUMBER
+;
+; MONDEATH        -MONSTER DEATH CODE
+;         IN      X IS MONSTER NUMBER
 
 MONDEATH
           JSR     SCORSTMP

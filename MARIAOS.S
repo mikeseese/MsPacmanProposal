@@ -1,13 +1,13 @@
 
-*  MARIAOS        MARIA DATA LOCATION DEFINITIONS
+;  MARIAOS        MARIA DATA LOCATION DEFINITIONS
 
-*  NOTE THE FOLLOWING WIERD THINGS ABOUT THE RAM:
-*           $00-$3F <=> $100-$13F
-*           $80-$FF <=> $180-$1FF
-*           $40-$FF <=> $2040-$20FF
-*         $140-$1FF <=> $2140-$21FF
+;  NOTE THE FOLLOWING WIERD THINGS ABOUT THE RAM:
+;           $00-$3F <=> $100-$13F
+;           $80-$FF <=> $180-$1FF
+;           $40-$FF <=> $2040-$20FF
+;         $140-$1FF <=> $2140-$21FF
 
-*  TIA REGISTERS
+;  TIA REGISTERS
 INPTCTRL  EQU     $01                    ;INPUT CONTROL
 INPT4     EQU     $0C                    ;BITS 7        PLAYER 0 BUTTON
 INPT5     EQU     $0D                    ;BITS 7        PLAYER 1 BUTTON
@@ -18,7 +18,7 @@ AUDF1     EQU     $18                    ;BITS    43210 AUDIO FREQUENCY 1
 AUDV0     EQU     $19                    ;BITS     3210 AUDIO VOLUME 0
 AUDV1     EQU     $1A                    ;BITS     3210 AUDIO VOLUME 1
 
-*  MARIA REGISTERS
+;  MARIA REGISTERS
 BACKGRND  EQU     $20                    ;BACKGROUND COLOR
 Z0C1      EQU     $21                    ;PALETTE 0, COLOR 1
 Z0C2      EQU     $22                    ;PALETTE 0, COLOR 2
@@ -43,7 +43,7 @@ CHARBASE  EQU     $34                    ;CHARACTER MODE HIGH POINTER         WO
 Z5C1      EQU     $35                    ;PALETTE 5, COLOR 1
 Z5C2      EQU     $36                    ;PALETTE 5, COLOR 2
 Z5C3      EQU     $37                    ;PALETTE 5, COLOR 3
-OFFSET    EQU     $38                    ;NOT USED ******
+OFFSET    EQU     $38                    ;NOT USED ;;;;;;
 Z6C1      EQU     $39                    ;PALETTE 6, COLOR 1
 Z6C2      EQU     $3A                    ;PALETTE 6, COLOR 2
 Z6C3      EQU     $3B                    ;PALETTE 6, COLOR 3
@@ -52,30 +52,30 @@ Z7C1      EQU     $3D                    ;PALETTE 7, COLOR 1
 Z7C2      EQU     $3E                    ;PALETTE 7, COLOR 2
 Z7C3      EQU     $3F                    ;PALETTE 7, COLOR 3
 
-*  FREE RAM - $40-$FF
+;  FREE RAM - $40-$FF
 
-*  ALIASED RAM - $100-$13F
+;  ALIASED RAM - $100-$13F
 
-*  STACK - $140-$1FF
+;  STACK - $140-$1FF
 
-*  6532 TIMERS AND PORTS
+;  6532 TIMERS AND PORTS
 
 SWCHA     EQU     $280                   ;JOYSTICKS
-*         BIT 7   PLAYER 0 EAST IF CLEAR
-*         BIT 6            WEST
-*         BIT 5            SOUTH
-*         BIT 4            NORTH
-*         BIT 3   PLAYER 1 EAST IF CLEAR
-*         BIT 2            WEST
-*         BIT 1            SOUTH
-*         BIT 0            NORTH
+;         BIT 7   PLAYER 0 EAST IF CLEAR
+;         BIT 6            WEST
+;         BIT 5            SOUTH
+;         BIT 4            NORTH
+;         BIT 3   PLAYER 1 EAST IF CLEAR
+;         BIT 2            WEST
+;         BIT 1            SOUTH
+;         BIT 0            NORTH
 
 SWCHB     EQU     $282                   ;CONSOLE SWITCHES
-*         BIT 7   PLAYER 1 DIFFICULTY A IF SET, B IF CLEAR
-*         BIT 6   PLAYER 2 DIFFICULTY A IF SET, B IF CLEAR
-*         BIT 3   BLACK AND WHITE VS COLOR - COLOR WHEN SET
-*         BIT 1   GAME SELECT - CLEAR WHEN PRESSED
-*         BIT 0   GAME RESET - CLEAR WHEN PRESSED
+;         BIT 7   PLAYER 1 DIFFICULTY A IF SET, B IF CLEAR
+;         BIT 6   PLAYER 2 DIFFICULTY A IF SET, B IF CLEAR
+;         BIT 3   BLACK AND WHITE VS COLOR - COLOR WHEN SET
+;         BIT 1   GAME SELECT - CLEAR WHEN PRESSED
+;         BIT 0   GAME RESET - CLEAR WHEN PRESSED
 
 CTLSWA    EQU     $281
 CTLSWB    EQU     $283

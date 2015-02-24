@@ -1,8 +1,8 @@
 
-*  TUNES.S - SOUND DRIVER
+;  TUNES.S - SOUND DRIVER
 
 
-*  TURN OFF ALL SOUNDS
+;  TURN OFF ALL SOUNDS
 STOPTUN   LDA     #$00                   ;TURN OFF SOUNDS
           STA     AUDV0
           STA     AUDV1
@@ -11,7 +11,7 @@ STOPTUN   LDA     #$00                   ;TURN OFF SOUNDS
           RTS
 
 
-*  TURN ON ALL SOUNDS
+;  TURN ON ALL SOUNDS
 STARTTUN  LDX     #$01
 STTLOOP   LDA     TUNON,X                ;SEE IF TUNE IS ON
           BEQ     STTLNEXT
@@ -31,9 +31,9 @@ STTLNEXT  DEX
           RTS
 
 
-*  THIS ROUTINE ENTERS A TUNE INTO ONE OF THE SOUND CHANNELS IF IT CAN
-*  INPUT:  TUNE NUMBER IN A
-*  X AND Y ARE PRESERVED
+;  THIS ROUTINE ENTERS A TUNE INTO ONE OF THE SOUND CHANNELS IF IT CAN
+;  INPUT:  TUNE NUMBER IN A
+;  X AND Y ARE PRESERVED
 DOTUNE    STA     TUNNUM                 ;SAVE IT
           LDA     AUTOPLAY               ;IF IN AUTOPLAY - NO SOUND
           BEQ     DTCONT
@@ -61,9 +61,9 @@ DTOUT     PLA                            ;UNSTACK REGISTERS
           RTS
 
 
-*  ROUTINE TO KILL A PARTICULAR TUNE - IF IT IS RUNNING
-*  INPUT: TUNE NUMBER IN A
-*  X AND Y ARE PRESERVED
+;  ROUTINE TO KILL A PARTICULAR TUNE - IF IT IS RUNNING
+;  INPUT: TUNE NUMBER IN A
+;  X AND Y ARE PRESERVED
 KILLTUNE  STA     TUNNUM                 ;SAVE IT
           TXA                            ;STACK REGISTERS
           PHA
@@ -85,8 +85,8 @@ KTNEXT    DEX
           RTS
 
 
-*  THIS ROUTINE ERASES ALL TUNES
-*  X AND Y ARE PRESERVED
+;  THIS ROUTINE ERASES ALL TUNES
+;  X AND Y ARE PRESERVED
 CLEARTUN  TXA                            ;STACK REGISTERS
           PHA
           TYA
@@ -102,8 +102,8 @@ CTLOOP    JSR     ENDTUNE                ;ERASE CURRENT TUNE
           RTS
 
 
-*  THIS ROUTINE IS CALLED EVERY VBLANK TO TAKE CARE OF TUNES
-*  REGISTERS ARE NOT SAVED
+;  THIS ROUTINE IS CALLED EVERY VBLANK TO TAKE CARE OF TUNES
+;  REGISTERS ARE NOT SAVED
 TUNER     LDX     #$01                   ;TWO TUNES CHANNELS, START WITH SECOND
           LDA     TUNOFF
           BEQ     TUNLOOP
@@ -137,9 +137,9 @@ TUNNEXT   DEX                            ;DONE WITH THAT TUNE, IS THERE ANOTHER?
           BPL     TUNLOOP
           RTS                            ;ALL DONE
 
-*  ROUTINES TO GET NEXT FREQUENCY, CTL, OR VOLUME
+;  ROUTINES TO GET NEXT FREQUENCY, CTL, OR VOLUME
 
-*  THIS ROUTINE GETS NEXT FREQUENCY
+;  THIS ROUTINE GETS NEXT FREQUENCY
 TNXTFREQ  LDY     FREQOFF,X              ;GET INDEX INTO TABLE
           LDA     (SOUNDZP),Y            ;GET FREQUENCY
           BMI     TNFENDT                ;IS THIS THE END OF THE TUNE?
@@ -170,7 +170,7 @@ TNFEOUT   PLA                            ;END OF TUNE
           JMP     TUNLOOP                ;UPDATE THIS CHANNEL
 
 
-*  THIS ROUTINE GETS NEXT CONTROL BYTE
+;  THIS ROUTINE GETS NEXT CONTROL BYTE
 TNXTCTL   LDY     CTLOFF,X               ;GET INDEX INTO TABLE
           LDA     (SOUNDZP),Y            ;GET FREQUENCY
           STA     AUDC0,X
@@ -183,7 +183,7 @@ TNXTCTL   LDY     CTLOFF,X               ;GET INDEX INTO TABLE
           RTS
 
 
-*  THIS ROUTINE GETS NEXT VOLUME BYTE
+;  THIS ROUTINE GETS NEXT VOLUME BYTE
 TNXTVOL   LDY     VOLOFF,X               ;GET INDEX INTO TABLE
           LDA     (SOUNDZP),Y            ;GET FREQUENCY
           STA     AUDV0,X
@@ -196,17 +196,17 @@ TNXTVOL   LDY     VOLOFF,X               ;GET INDEX INTO TABLE
           RTS
 
 
-*  THIS ROUTINE CLEARS OUT A TUNE CHANNEL
-*  INPUT: X IS CHANNEL
+;  THIS ROUTINE CLEARS OUT A TUNE CHANNEL
+;  INPUT: X IS CHANNEL
 ENDTUNE   LDA     #$00
           STA     TUNON,X                ;INDICATE CHANNEL CLEAR
           STA     TUNINDEX,X             ;CLEAR TUNE INDEX
           RTS
 
 
-*  THIS ROUTINE STARTS A TUNE IN A CHANNEL
-*  INPUT: X IS CHANNEL, A IS TUNE
-*  USES:  Y
+;  THIS ROUTINE STARTS A TUNE IN A CHANNEL
+;  INPUT: X IS CHANNEL, A IS TUNE
+;  USES:  Y
 BEGINTUN  TAY                            ;PUT TUNE IN Y
           STA     TUNINDEX,X             ;SET THE TUNE INDEX
           LDA     #$00                   ;TURN TUNE OFF WHILE CHANGING IT
@@ -231,10 +231,10 @@ BEGINTUN  TAY                            ;PUT TUNE IN Y
           RTS
 
 
-*  DATA FOR TUNES
+;  DATA FOR TUNES
 
-*  TUNE TABLES, BASE ADDRESSES FOR TUNES AND THE OFFSETS WITHIN THE TUNES WHERE
-*  THE CTL AND VOL INFORMATION START
+;  TUNE TABLES, BASE ADDRESSES FOR TUNES AND THE OFFSETS WITHIN THE TUNES WHERE
+;  THE CTL AND VOL INFORMATION START
 TBASE     DB      L(TINTRO0),L(TINTRO1),L(TANIM10),L(TANIM11),L(TANIM20A)
           DB      L(TANIM20B),L(TANIM21A),L(TANIM21B),L(TANIM30),L(TANIM31)
           DB      L(TBACKG),L(TFRTBNC),L(TPACDTH),L(TENERGA),L(TENERGB)
@@ -258,7 +258,7 @@ TCHANNEL  DB      0,1,0,1,0,0,1,1,0,1
           DB      0,1,1,0,0,0,1,1,1,0
           DB      1
 
-*  TUNE 0 - FIRST VOICE OF INTRODUCTION
+;  TUNE 0 - FIRST VOICE OF INTRODUCTION
 TINTRO0   DB      $00,$0C,$1B,$10,$15,$10,$18,$10,$14,$10        ;FREQ
           DB      $15,$08,$14,$08,$12,$08,$15,$08,$18,$10,$14,$10
           DB      $15,$08,$14,$08,$12,$08,$15,$08
@@ -267,7 +267,7 @@ TINTRO0   DB      $00,$0C,$1B,$10,$15,$10,$18,$10,$14,$10        ;FREQ
           DB      $04,$00                                        ;CTL
           DB      $0C,$00                                        ;VOL
 
-*  TUNE 1 - SECOND VOICE OF INTRODUCTION
+;  TUNE 1 - SECOND VOICE OF INTRODUCTION
 TINTRO1   DB      $0B,$04,$0A,$04,$09,$04,$12,$20                ;FREQ
           DB      $18,$20,$12,$20
           DB      $13,$08,$12,$08,$10,$08,$13,$08
@@ -278,7 +278,7 @@ TINTRO1   DB      $0B,$04,$0A,$04,$09,$04,$12,$20                ;FREQ
           DB      $08,$1C,$00,$10,$08,$10,$00,$10,$08,$10        ;VOL
           DB      $00,$10,$08,$00
 
-*  TUNE 2 - FIRST VOICE, FIRST ANIMATION
+;  TUNE 2 - FIRST VOICE, FIRST ANIMATION
 TANIM10   DB      $1A,$08,$17,$08,$1A,$08,$1F,$10                ;FREQ
           DB      $0D,$08,$0B,$08,$0A,$08,$1F,$20
           DB      $0B,$08,$1F,$08,$0B,$08,$0D,$08
@@ -294,7 +294,7 @@ TANIM10   DB      $1A,$08,$17,$08,$1A,$08,$1F,$10                ;FREQ
           DB      $04,$28,$0D,$40,$04,$98,$0D,$08,$04,$08,$0D,$00
           DB      $0C,$00                                        ;VOL
 
-*  TUNE 3 - SECOND VOICE, FIRST ANIMATION
+;  TUNE 3 - SECOND VOICE, FIRST ANIMATION
 TANIM11   DB      $14,$C0,$1B,$40                                ;FREQ
           DB      $14,$20,$17,$20,$1A,$20,$1B,$20
           DB      $14,$10,$11,$10
@@ -312,7 +312,7 @@ TANIM11   DB      $14,$C0,$1B,$40                                ;FREQ
           DB      $09,$88,$00,$08,$09,$08,$00,$08
           DB      $09,$08,$00,$08,$09,$08,$00,$08,$09,$00
 
-*  TUNE 4 - FIRST VOICE, SECOND ANIMATION
+;  TUNE 4 - FIRST VOICE, SECOND ANIMATION
 TANIM20A  DB      $0B,$06,$1F,$06,$1D,$06,$1B,$0C,$1D,$06,$1B,$06,$00,$06 ;FREQ
           DB      $1B,$06,$1A,$06,$18,$06,$17,$0C,$18,$06,$17,$06,$00,$06
           DB      $0D,$06,$0F,$06,$11,$06,$13,$06
@@ -330,7 +330,7 @@ TANIM20A  DB      $0B,$06,$1F,$06,$1D,$06,$1B,$0C,$1D,$06,$1B,$06,$00,$06 ;FREQ
           DB      $04,$C0,$0D,$12,$04,$00
           DB      $0C,$00                                        ;VOL
 
-*  TUNE 5 - SECOND PART TO TUNE 4
+;  TUNE 5 - SECOND PART TO TUNE 4
 TANIM20B  DB      $14,$06,$13,$06,$12,$06,$11,$06                ;FREQ
           DB      $0B,$06,$1F,$06,$1D,$06,$1B,$06
           DB      $14,$06,$13,$06,$12,$06,$11,$06
@@ -345,7 +345,7 @@ TANIM20B  DB      $14,$06,$13,$06,$12,$06,$11,$06                ;FREQ
           DB      $0D,$18,$04,$00
           DB      $0C,$00                                        ;VOL
 
-*  TUNE 6 - SECOND VOICE, SECOND ANIMATION
+;  TUNE 6 - SECOND VOICE, SECOND ANIMATION
 TANIM21A  DB      $17,$8A,$14,$03,$12,$03                        ;FREQ
           DB      $11,$0C,$0D,$0C,$17,$0C,$0D,$0C
           DB      $11,$0C,$0D,$0C,$17,$0C,$0D,$0C
@@ -372,7 +372,7 @@ TANIM21A  DB      $17,$8A,$14,$03,$12,$03                        ;FREQ
           DB      $09,$06,$00,$06,$09,$06,$00,$06
           DB      $09,$06,$00,$06,$09,$06,$00,$06
 
-*  TUNE 7 - SECOND PART TO TUNE 6
+;  TUNE 7 - SECOND PART TO TUNE 6
 TANIM21B  DB      $0F,$18,$17,$18                                ;FREQ
           DB      $11,$06,$0F,$06,$0E,$06,$0D,$12,$0F,$06,$17,$06
           DB      $11,$0C,$0D,$0C,$17,$0C,$0D,$0C
@@ -397,7 +397,7 @@ TANIM21B  DB      $0F,$18,$17,$18                                ;FREQ
           DB      $09,$06,$00,$12,$09,$06,$00,$06
           DB      $09,$06,$00,$06,$09,$06,$00,$06,$09,$06,$00,$06
 
-*  TUNE 8 - FIRST VOICE, THIRD ANIMATION
+;  TUNE 8 - FIRST VOICE, THIRD ANIMATION
 TANIM30   DB      $1B,$0A,$1D,$0A,$1B,$0A,$17,$14,$18,$0A,$17,$14    ;FREQ
           DB      $0B,$0A,$1F,$0A,$1D,$0A,$1B,$14,$1D,$0A,$1B,$14
           DB      $14,$0A,$17,$0A,$14,$0A,$12,$14,$0D,$0A,$0F,$14
@@ -406,7 +406,7 @@ TANIM30   DB      $1B,$0A,$1D,$0A,$1B,$0A,$17,$14,$18,$0A,$17,$14    ;FREQ
           DB      $04,$50,$0D,$0A,$04,$00                        ;CTL
           DB      $0C,$00                                        ;VOL
 
-*  TUNE 9 - SECOND VOICE, THIRD ANIMATION
+;  TUNE 9 - SECOND VOICE, THIRD ANIMATION
 TANIM31   DB      $0F,$1E,$12,$14,$0F,$0A,$10,$0A,$11,$0A        ;FREQ
           DB      $12,$1E,$0F,$14,$17,$0A,$12,$0A,$0F,$0A
           DB      $11,$1E,$0F,$1E,$11,$14
@@ -417,18 +417,18 @@ TANIM31   DB      $0F,$1E,$12,$14,$0F,$0A,$10,$0A,$11,$0A        ;FREQ
           DB      $00,$14,$09,$32,$00,$14,$09,$0A,$00,$1E,$09,$0A
           DB      $00,$14,$09,$00
 
-*  TUNE A - BACKGROUND SOUND
+;  TUNE A - BACKGROUND SOUND
 TBACKG    DB      $19,$01,$04,$01,$15,$01,$03,$01                ;FREQ
           DB      $11,$01,$02,$01,$0C,$01,$01,$01,$FE
           DB      $04,$00                                        ;CTL
           DB      $04,$00                                        ;VOL
 
-*  TUNE B - FRUIT BOUNCE
+;  TUNE B - FRUIT BOUNCE
 TFRTBNC   DB      $1F,$06,$FF                                    ;FREQ
           DB      $0F,$00                                        ;CTL
           DB      $0C,$00                                        ;VOL
 
-*  TUNE C - PAC DEATH
+;  TUNE C - PAC DEATH
 TPACDTH   DB      $18,$02,$19,$02,$1A,$02,$1B,$02                ;FREQ
           DB      $1C,$02,$1D,$02,$1E,$02,$1F,$02
           DB      $1C,$02,$1D,$02,$1E,$02,$1F,$02
@@ -446,7 +446,7 @@ TPACDTH   DB      $18,$02,$19,$02,$1A,$02,$1B,$02                ;FREQ
           DB      $09,$04,$08,$04,$07,$04,$06,$04
           DB      $08,$04,$07,$04,$06,$04,$05,$04
 
-* SOUND D - ENERGIZE SOUND
+; SOUND D - ENERGIZE SOUND
 TENERGA   DB      $1F,$02,$1E,$02,$1D,$02,$1C,$02                ;FREQ
           DB      $1F,$02,$1E,$02,$1D,$02,$1C,$02
           DB      $1E,$02,$1D,$02,$1C,$02,$1B,$02
@@ -473,7 +473,7 @@ TENERGA   DB      $1F,$02,$1E,$02,$1D,$02,$1C,$02                ;FREQ
           DB      $0B,$02,$0A,$02,$09,$02,$08,$02
           DB      $0B,$02,$0A,$02,$09,$02,$08,$02
 
-*  TUNE E - SECOND PART OF TUNE D
+;  TUNE E - SECOND PART OF TUNE D
 TENERGB   DB      $14,$02,$13,$02,$12,$02,$11,$02
           DB      $13,$02,$12,$02,$11,$02,$10,$02
           DB      $12,$02,$11,$02,$10,$02,$0F,$02
@@ -496,17 +496,17 @@ TENERGB   DB      $14,$02,$13,$02,$12,$02,$11,$02
           DB      $08,$02,$07,$02,$06,$02,$05,$02
           DB      $07,$02,$06,$02,$05,$02,$04,$02
 
-* SOUND F - THIRD PART OF SOUND D
+; SOUND F - THIRD PART OF SOUND D
 TENERGC   DB      $09,$02,$08,$02,$07,$02,$06,$02,$FE            ;FREQ
           DB      $0D,$00                                        ;CTL
           DB      $05,$00                                        ;VOL
 
-* SOUND 10 - MUNCH SOUND
+; SOUND 10 - MUNCH SOUND
 TMUNCH    DB      $18,$01,$14,$01,$12,$01,$FF                    ;FREQ
           DB      $0D,$01,$04,$01,$0D,$01,$04,$01,$0D,$01,$04,$01  ;CTL
           DB      $08,$00                                        ;VOL
 
-* SOUND 11 - EAT MONSTER
+; SOUND 11 - EAT MONSTER
 TEATMON   DB      $18,$02,$17,$02,$16,$04                        ;FREQ
           DB      $15,$02,$14,$02,$13,$04
           DB      $13,$01,$12,$01,$11,$01,$10,$01
@@ -516,7 +516,7 @@ TEATMON   DB      $18,$02,$17,$02,$16,$04                        ;FREQ
           DB      $0A,$01,$09,$01,$08,$01,$07,$01,$06,$02,$00,$02
           DB      $0A,$02,$09,$02,$08,$01,$07,$01,$06,$02
 
-* SOUND 12 - EAT FRUIT
+; SOUND 12 - EAT FRUIT
 TEATFRT   DB      $0D,$01,$0E,$01,$0D,$01,$0E,$01                ;FREQ
           DB      $0F,$01,$10,$01,$11,$01,$12,$01
           DB      $13,$01,$14,$02,$13,$01
@@ -526,13 +526,13 @@ TEATFRT   DB      $0D,$01,$0E,$01,$0D,$01,$0E,$01                ;FREQ
           DB      $08,$02,$07,$02,$06,$02,$04,$04                ;VOL
           DB      $06,$02,$07,$02,$08,$00
 
-* SOUND 13 - EYES
+; SOUND 13 - EYES
 TEYES     DB      $12,$01,$00,$01,$11,$01,$00,$01,$10,$01        ;FREQ
           DB      $00,$01,$0E,$01,$00,$01,$0C,$01,$00,$01,$FE
           DB      $04,$00                                        ;CTL
           DB      $08,$00                                        ;VOL
 
-* SOUND 14 - DING DING (BONUS LIFE)
+; SOUND 14 - DING DING (BONUS LIFE)
 TBONUS    DB      $0A,$50,$FF                                    ;FREQ
           DB      $04,$00                                        ;CTL
           DB      $0C,$05,$00,$05,$0C,$05,$00,$05

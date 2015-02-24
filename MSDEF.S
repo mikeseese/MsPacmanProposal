@@ -1,10 +1,10 @@
 
-*  MSDEF.S        MS PAC MAN SYMBOL DEFINITIONS
-*  ADDRESS DEFINITIONS
+;  MSDEF.S        MS PAC MAN SYMBOL DEFINITIONS
+;  ADDRESS DEFINITIONS
 
-*  ZERO PAGE
+;  ZERO PAGE
 
-*  ZERO PAGE VARIABLES THAT ARE NOT ERASED  $40-$9F
+;  ZERO PAGE VARIABLES THAT ARE NOT ERASED  $40-$9F
 
 STLEVEL   EQU     $40                    ;STARTING LEVEL OF GAME
 TWOPLAYR  EQU     $41                    ;WHETHER TWO-PLAYER MODE
@@ -24,7 +24,7 @@ MENUFLAG  EQU     $53                    ;WHETHER IN MENU MODE OR NOT
 KNLTEMP0  EQU     $54                    ;STATE VARIABLE FOR KERNAL
 KNLTEMP1  EQU     $55                    ;STATE VARIABLE FOR KERNAL
 
-*  LOADER VARIABLES
+;  LOADER VARIABLES
 HPLIST    EQU     $56                    ;6 BYTES - HORIZONTAL POSITION
 VZLIST    EQU     $5C                    ;6 BYTES - VERTICAL ZONE
 VOLIST    EQU     $62                    ;6 BYTES - VERTICAL OFFSET
@@ -33,7 +33,7 @@ SHLIST    EQU     $6E                    ;6 BYTES - HI BYTE STAMP ADDRESS
 DOLIST    EQU     $74                    ;6 BYTES - SOMETHING CHANGED - RELOAD
 OLDZONE   EQU     $7A                    ;6 BYTES - LAST ZONE CHARACTER IN
 
-*  SHADOWS FOR MONSTER COLORS (USED FOR FRUIT PALETTES)
+;  SHADOWS FOR MONSTER COLORS (USED FOR FRUIT PALETTES)
 P0C1      EQU     $81                    ;PALETTE 2, COLOR 1
 P0C2      EQU     $82                    ;PALETTE 2, COLOR 2
 P0C3      EQU     $83                    ;PALETTE 2, COLOR 3
@@ -80,13 +80,13 @@ P7C1      EQU     $9D                    ;PALETTE 5, COLOR 1
 P7C2      EQU     $9E                    ;PALETTE 5, COLOR 2
 P7C3      EQU     $9F                    ;PALETTE 5, COLOR 3
 
-*  ZERO PAGE VARIABLES THAT ARE ERASED IN GAMEINIT  $A0-$FF
+;  ZERO PAGE VARIABLES THAT ARE ERASED IN GAMEINIT  $A0-$FF
 
 RTLOCAL   EQU     $A0                    ;TWO BYTES - MY CLOCK
 GAMEOVER  EQU     $A2                    ;FLAG FOR GAME OVER
 
 TOTLIVES  EQU     $A3                    ;TOTAL NUMBER OF LIVES
-*  $64-$6F ARE SWAPPED BETWEEN PLAYERS
+;  $64-$6F ARE SWAPPED BETWEEN PLAYERS
 LIVES     EQU     $A4                    ;NUMBER OF LIVES
 RACK      EQU     $A5                    ;RACK PLAYER IS AT
 LEVEL     EQU     $A6                    ;LEVEL PLAYER IS AT
@@ -99,7 +99,7 @@ BLUEDOTS  EQU     $AD                    ;BLUE RELEASE COUNTER
 GOLDDOTS  EQU     $AE                    ;GOLD RELEASE COUNTER
 FDOTS     EQU     $AF                    ;FRUIT RELEASE COUNTER
 
-*  TEMP VARIABLES
+;  TEMP VARIABLES
 TEMP0     EQU     $B0                    ;SCRATCH DATA FOR PROGRAM USE
 TEMP1     EQU     $B1                    ;MORE SCRATCH DATA
 TEMP2     EQU     $B2                    ;MORE SCRATCH DATA
@@ -153,10 +153,10 @@ RESWAIT   EQU     $DE                    ;WAIT TILL END OF RESET
 
 BAKLIVES  EQU     $E4                    ;OTHER PLAYER VERSION OF $54-$5F
 
-*  TIME LAST DOT WAS EATEN
+;  TIME LAST DOT WAS EATEN
 DOTTIME   EQU     $F0                    ;TWO BYTES
 
-* GLOBAL MONSTER STATE INFO
+; GLOBAL MONSTER STATE INFO
 SCORTIME  EQU     $F2                    ;MONSTER SCORE DELAY COUNTER
 BLUETIME  EQU     $F3                    ;BLUE TIME FOR THIS RACK
 M1REL     EQU     $F4                    ;MONSTER RELEASE THRESHHOLDS
@@ -171,23 +171,23 @@ GREEDCNT  EQU     $FE                    ;MONSTERS EATEN ON THIS POWER DOT
 BORED     EQU     $FF                    ;MONSTERS ARE BORED
 
 
-*  HIGH RAM - NOTE, 1800-1DFF IS ZEROED IN ZERORAM
+;  HIGH RAM - NOTE, 1800-1DFF IS ZEROED IN ZERORAM
 
-*  HIGH SCORE RAM - SMASHED WHEN HIGH SCORE ROUTINES ARE CALLED
+;  HIGH SCORE RAM - SMASHED WHEN HIGH SCORE ROUTINES ARE CALLED
 HSCRAM    EQU     $1800                  ;$200 BYTES
 
-*  HIGH SCORE CART DIFFICULTY NAME
+;  HIGH SCORE CART DIFFICULTY NAME
 HSCDIF    EQU     $1A00                  ;$20 BYTES
 
-*  SCREEN MAP - THROUGH $1BFF
+;  SCREEN MAP - THROUGH $1BFF
 SCREEN    EQU     $1800                  ;SCREEN MAP
 SCORE     EQU     $1B48                  ;SCORE MAP - EFFECTIVELY THE 31ST LINE
 
-*  DOT ARRAYS - THROUGH $1CFF
+;  DOT ARRAYS - THROUGH $1CFF
 DOTARRAY  EQU     $1C00                  ;CURRENT PLAYER DOT ARRAY
 BAKDOTS   EQU     $1C80                  ;OTHER PLAYER DOT ARRAY
 
-*  TUNE VARIABLES
+;  TUNE VARIABLES
 TUNON     EQU     $1D00                  ;4 BYTES - WHETHER TUNE IS ACTIVE
 TUNINDEX  EQU     $1D04                  ;4 BYTES - WHAT TUNE IS PLAYING
 TUNPRIOR  EQU     $1D08                  ;4 BYTES - WHAT THE PRIORITY OF TUNE IS
@@ -204,7 +204,7 @@ TUNTEMP0  EQU     $1D2D                  ;TEMP VALUE FOR TUNE DRIVER
 TUNTEMP1  EQU     $1D2E                  ;TEMP VALUE FOR TUNE DRIVER
 TUNOFF    EQU     $1D2F                  ;ARE TUNES TURNED OFF?
 
-*  KERNAL DISPLAY TABLES
+;  KERNAL DISPLAY TABLES
 MSADDR    EQU     $1E40                  ;$1E BYTES - MS ADDRESS TABLE
 FRTADDR   EQU     $1E60                  ;$1E BYTES - FRUIT ADDRESS TABLE
 M0ADDR    EQU     $1E80                  ;$1E BYTES - MONSTER 0 ADDRESS TABLE
@@ -212,7 +212,7 @@ M1ADDR    EQU     $1EA0                  ;$1E BYTES - MONSTER 1 ADDRESS TABLE
 M2ADDR    EQU     $1EC0                  ;$1E BYTES - MONSTER 2 ADDRESS TABLE
 M3ADDR    EQU     $1EE0                  ;$1E BYTES - MONSTER 3 ADDRESS TABLE
 
-*  KERNAL DISPLAY LISTS - MUST BE ON SAME PAGE
+;  KERNAL DISPLAY LISTS - MUST BE ON SAME PAGE
 DLIST0    EQU     $1F00                  ;$27 BYTES - DISPLAY LIST FOR GAME
 BDLIST0   EQU     $1F27                  ;$32 BYTES - DISPLAY LIST FOR INDICATOR
 DLIST1    EQU     $1F59                  ;$27 BYTES - DISPLAY LIST FOR GAME
@@ -220,12 +220,12 @@ BDLIST1   EQU     $1F80                  ;$32 BYTES - DISPLAY LIST FOR INDICATOR
 TOPDLIST  EQU     $1FB2                  ;$07 BYTES - DISPLAY LIST FOR SCORE
 NULDLIST  EQU     $1FB7                  ;$02 BYTES - NULL DISPLAY LIST
 
-*  DISPLAY LIST LIST
+;  DISPLAY LIST LIST
 DLL       EQU     $1FC0                  ;$72 BYTES - LIST OF DISPLAY LISTS
 
-*         ***** HOLE FROM $2040 TO $20FF - SHADOWED IN PAGE 0 *****
+;         ;;;;; HOLE FROM $2040 TO $20FF - SHADOWED IN PAGE 0 ;;;;;
 
-*  PAC STATE VARIABLES
+;  PAC STATE VARIABLES
 PVPOS     EQU     $2100                  ;VERTICAL POSITION
 PHPOS     EQU     $2101                  ;HORIZONTAL POSITION
 PZONE     EQU     $2102                  ;ROW
@@ -240,7 +240,7 @@ PTEMP     EQU     $2109                  ;TEMP VARIABLE
 PDELAY    EQU     $210A                  ;DELAY FOR NEXT MOVE
 PTUNNEL   EQU     $210B                  ;WHETHER PAC IN TUNNEL
 
-*  FRUIT STATE VARIABLES
+;  FRUIT STATE VARIABLES
 FENABLE   EQU     $2110                  ;WHETHER FRUIT IS 'ON'
 FVPOS     EQU     $2111                  ;VERTICAL POSITION
 FHPOS     EQU     $2112                  ;HORIZONTAL POSITION
@@ -257,7 +257,7 @@ FSCORE    EQU     $211B                  ;IF NON-ZERO, FRUIT IS A SCORE
 FTUNNEL   EQU     $211C                  ;WHETHER FRUIT IN TUNNEL
 FSOUND    EQU     $211D                  ;SOUND STATE VARIABLE
 
-*  MONSTER STATE VARIABLES
+;  MONSTER STATE VARIABLES
 M0VPOS    EQU     $2120                  ;VERTICAL POSITION
 M0HPOS    EQU     $2124                  ;HORIZONTAL POSITION
 M0ZONE    EQU     $2128                  ;ROW
@@ -272,7 +272,7 @@ M0SPEED   EQU     $2144                  ;MONSTER SPEED
 M0TUNNEL  EQU     $2148                  ;IS IN TUNNEL
 M0FLIP    EQU     $214C                  ;IS ABOUT TO FLIP
 
-* SPEED REGISTER STUFF
+; SPEED REGISTER STUFF
 M0SPEED0  EQU     $2150                  ;MONSTER SPEED REGISTERS (BY 5 SPEEDS)
 M0SPEED1  EQU     $2155
 M0SPEED2  EQU     $215A
@@ -283,7 +283,7 @@ P0SPEED2  EQU     $2168
 P0SPEED3  EQU     $216A
 REVWAIT   EQU     $216C                  ; REVERSE TIME
 
-*  VARIABLES FOR ANIMATION DRIVER - OVERLAPS MONSTER VARIABLES
+;  VARIABLES FOR ANIMATION DRIVER - OVERLAPS MONSTER VARIABLES
 ANAOFF    EQU     $2120                  ;OFFSET INTO ANIMATION DATA
 ANSOFF    EQU     $2121                  ;OFFSET INTO ANIMATION SEGMENT DATA
 ANCOUNT   EQU     $2122                  ;TICS TILL NEXT SEGMENT
@@ -297,24 +297,24 @@ A0HPDIF   EQU     $2142                  ;INDEX INTO HPOS DELTA TABLE
 A0VPDIF   EQU     $2148                  ;INDEX INTO VPOS DELTA TABLE
 A0ANDIF   EQU     $214E                  ;INDEX INTO ANIMATE CHARACTER TABLE
 
-*         ***** HOLE FROM $2140 TO $21FF SHADOWED IN PAGE 1 *****
+;         ;;;;; HOLE FROM $2140 TO $21FF SHADOWED IN PAGE 1 ;;;;;
 
-*  STAMP DATA AREA - STAMPS IN $1X00-$1X2F, FONT IN $1X30-$1XFF
+;  STAMP DATA AREA - STAMPS IN $1X00-$1X2F, FONT IN $1X30-$1XFF
 STAMPS    EQU     $2200                  ;THROUGH THE END OF RAM - INCLUDES FONT
-*                 0-1                    BLANK
-*                 2-3                    BLACK BAR
-*                 4-9                    MS PAC
-*                 A-21                   MONSTERS (6 PER)
-*                 22-27                  FRUIT
-*                 28-2B                  MS PAC BONUS LIFE INDICATOR (4 PER)
-*                 30-BF                  FONT
-*                 E0-FF                  FRUIT INDICATORS (4 PER) - BANANA FIRST
+;                 0-1                    BLANK
+;                 2-3                    BLACK BAR
+;                 4-9                    MS PAC
+;                 A-21                   MONSTERS (6 PER)
+;                 22-27                  FRUIT
+;                 28-2B                  MS PAC BONUS LIFE INDICATOR (4 PER)
+;                 30-BF                  FONT
+;                 E0-FF                  FRUIT INDICATORS (4 PER) - BANANA FIRST
 
 
-*
-*  MS CONSTANTS
+;
+;  MS CONSTANTS
 
-*  SOME SCREEN CONSTANTS
+;  SOME SCREEN CONSTANTS
 LEFTSIDE  EQU     $18                    ;LEFT SIDE OF VISIBLE SCREEN
 RGHTSIDE  EQU     $88                    ;RIGHT SIDE OF VISIBLE SCREEN
 TOPSIDE   EQU     $00                    ;TOP SIDE OF VISIBLE SCREEN
@@ -324,35 +324,35 @@ LEFTWRAP  EQU     19                     ;A MONSTER HERE IS ABOUT TO WRAP AROUND
 RGHTEDGE  EQU     131                    ;A MONSTER HERE IS ON RIGHT OF SCREEN
 RGHTWRAP  EQU     139                    ;A MONSTER HERE IS ABOUT TO WRAP AROUND
 WRAPSIZE  EQU     RGHTWRAP-LEFTWRAP      ;SIZE OF TUNNEL WRAP
-*
+;
 NUMRACKS  EQU     $04                    ;NUMBER OF RACKS
-*
-*  MONSTER CONSTANTS
-MSTATPEN  EQU     $04                    ; IT IS SITTING IN THE PEN *
+;
+;  MONSTER CONSTANTS
+MSTATPEN  EQU     $04                    ; IT IS SITTING IN THE PEN ;
 MSTINPEN  EQU     $03                    ; EYES TRYING TO GET INTO PEN
-MSTLVPEN  EQU     $02                    ; MONSTER LEAVING PEN *
+MSTLVPEN  EQU     $02                    ; MONSTER LEAVING PEN ;
 MSTEYES   EQU     $01                    ; EYES MOVING ARROUND
-MSTNORM   EQU     $00                    ; NORMAL MOVEMENT *
+MSTNORM   EQU     $00                    ; NORMAL MOVEMENT ;
 SPDNORM   EQU     $00
 SPDBLUE   EQU     $01
 SPDSLOW   EQU     $02
 SPDRED1   EQU     $03
 SPDRED2   EQU     $04
-*
-* EVENT DRIVER CONSTANTS
+;
+; EVENT DRIVER CONSTANTS
 MAXEVENT  EQU     $F
-*
-*  SCREEN LOCATIONS
+;
+;  SCREEN LOCATIONS
 INITHPOS  EQU     $4F                    ;HPOS OF INITIAL MS PAC PLACE
 INITVPOS  EQU     $81                    ;VPOS OF INITIAL MS PAC PLACE
-*
-*  CONSTANT TIMES TO WAIT FOR THINGS
+;
+;  CONSTANT TIMES TO WAIT FOR THINGS
 WAITMON   EQU     $01                    ;WAIT FOR MONSTER MOVES
 WAITPAC   EQU     $01                    ;WAIT FOR PAC MOVES
 WAITFRT   EQU     $05                    ;WAIT FOR FRUIT MOVES
 WAITFLSH  EQU     $08                    ;WAIT FOR FLASHING POWER DOTS
-*
-*  COLOR DEFINITIONS
+;
+;  COLOR DEFINITIONS
 BLACK     EQU     $00
 LTPINK    EQU     $5E
 WHITE     EQU     $0C
@@ -370,15 +370,15 @@ LTBROWN   EQU     $3B
 GOLD      EQU     $2A
 HOTPINK   EQU     $54
 ORANGE    EQU     $35
-*
-*  FONT DEFINITIONS
+;
+;  FONT DEFINITIONS
 BLNKCHAR  EQU     $50                    ;BLANK
 DOTCHAR   EQU     $51                    ;DOT
 EDOTCHAR  EQU     $52                    ;ENERGY DOT
 DOORCHAR  EQU     $3D                    ;DOOR TO THE PEN
 MARQCHAR  EQU     $7B                    ;START OF MARQUEE CHARACTERS
-*
-*  JOYSTICK DIRECTIONS
+;
+;  JOYSTICK DIRECTIONS
 DRIGHT    EQU     0
 DDOWN     EQU     1
 DLEFT     EQU     2
@@ -388,11 +388,11 @@ DDWRIGHT  EQU     5
 DDWLEFT   EQU     6
 DUPLEFT   EQU     7
 DUPRIGHT  EQU     8
-*
+;
 P1SCRCOL  EQU     $00                    ;COLUMN FOR PLAYER 1 SCORE
 P2SCRCOL  EQU     $15                    ;COLUMN FOR PLAYER 2 SCORE
-*
+;
 STACKPTR  EQU     $FF                    ;WHERE STACK IS ON PAGE 1
-*
+;
 GRAPHON   EQU     $48                    ;CTL VALUE FOR NORMAL GRAPHICS
 GRAPHOFF  EQU     $FF                    ;CTL VALUE FOR GRAPHICS OFF

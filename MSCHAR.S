@@ -1,14 +1,14 @@
 
-*  MSCHAR.S        CHARACTER SET FOR MS PAC MAN
-*                 FIRST FILE TO BE LOADED TO MAKE SURE ALL GRAPHICS ON EVEN
-*                 CHARACTERS
+;  MSCHAR.S        CHARACTER SET FOR MS PAC MAN
+;                 FIRST FILE TO BE LOADED TO MAKE SURE ALL GRAPHICS ON EVEN
+;                 CHARACTERS
 
           ASEG
 
           ORG     $C000                  ; CART STARTS AT C000
 
-*  MS PAC MAN CHARACTER SET
-*         MAZE CHARACTERS
+;  MS PAC MAN CHARACTER SET
+;         MAZE CHARACTERS
 MSFONT    DB      $B0,$B0,$C0,$00,$00,$00        ; 30 -  UPPER LEFT FULL
           DB      $00,$00,$00,$C0,$B0,$B0        ; 31 -  LOWER LEFT FULL
           DB      $B0,$B0,$B0,$B0,$B0,$B0        ; 32 -  LEFT FULL
@@ -23,7 +23,7 @@ MSFONT    DB      $B0,$B0,$C0,$00,$00,$00        ; 30 -  UPPER LEFT FULL
           DB      $0E,$0E,$0E,$FA,$AA,$AA        ; 3B -  UPPER LEFT EMPTY
           DB      $AA,$AA,$AA,$AA,$AA,$AA        ; 3C -  ALL FULL
 
-* PEN CHARACTERS
+; PEN CHARACTERS
           DB      $00,$00,$00,$AA,$AA,$AA        ; 3D -  PEN ENTRANCE
           DB      $B0,$B0,$F0,$00,$00,$00        ; 3E -  LOWER LEFT CORNER
           DB      $00,$00,$00,$F0,$B0,$B0        ; 3F -  UPPER LEFT CORNER
@@ -34,7 +34,7 @@ MSFONT    DB      $B0,$B0,$C0,$00,$00,$00        ; 30 -  UPPER LEFT FULL
           DB      $00,$00,$00,$FF,$AA,$AA        ; 44 -  UPPER SIDE
           DB      $0E,$0E,$0E,$0E,$0E,$0E        ; 45 -  RIGHT SIDE
 
-* 3X5 NUMBERS     - ALTERNATE SET FOR OTHER PLAYER SCORE
+; 3X5 NUMBERS     - ALTERNATE SET FOR OTHER PLAYER SCORE
           DB      $2A,$22,$22,$22,$2A,$00        ;46  0
           DB      $08,$28,$08,$08,$2A,$00        ;47  1
           DB      $2A,$02,$2A,$20,$2A,$00        ;48  2
@@ -46,13 +46,13 @@ MSFONT    DB      $B0,$B0,$C0,$00,$00,$00        ; 30 -  UPPER LEFT FULL
           DB      $2A,$22,$2A,$22,$2A,$00        ;4E  8
           DB      $2A,$22,$2A,$02,$02,$00        ;4F  9
 
-* OTHER MAZE CHARACTERS
+; OTHER MAZE CHARACTERS
           DB      $00,$00,$00,$00,$00,$00        ; 50 - BLANK
           DB      $00,$00,$14,$14,$00,$00        ; 51 - REGULAR DOT.
           DB      $14,$55,$55,$55,$55,$14        ; 52 - POWER DOT
           DB      $00,$00,$00,$00,$00,$00        ; 53 - POWER DOT FLASHED
 
-* 3X5 NUMBERS
+; 3X5 NUMBERS
           DB      $3F,$33,$33,$33,$3F,$00        ;54  0
           DB      $0C,$3C,$0C,$0C,$3F,$00        ;55  1
           DB      $3F,$03,$3F,$30,$3F,$00        ;56  2
@@ -64,7 +64,7 @@ MSFONT    DB      $B0,$B0,$C0,$00,$00,$00        ; 30 -  UPPER LEFT FULL
           DB      $3F,$33,$3F,$33,$3F,$00        ;5C  8
           DB      $3F,$33,$3F,$03,$03,$00        ;5D  9
 
-* 3X5 LETTERS
+; 3X5 LETTERS
           DB      $3F,$33,$3F,$33,$33,$00        ;5E     A
           DB      $3C,$33,$3C,$33,$3C,$00        ;5F     B
           DB      $3F,$30,$30,$30,$3F,$00        ;60     C
@@ -95,7 +95,7 @@ MSFONT    DB      $B0,$B0,$C0,$00,$00,$00        ; 30 -  UPPER LEFT FULL
           DB      $33,$33,$00,$00,$00,$00        ;79     "
           DB      $00,$00,$3F,$00,$00,$00        ;7A     - 
 
-*  DOTS FOR MARQUEE
+;  DOTS FOR MARQUEE
           DB      $00,$00,$14,$14,$00,$00        ;7B
           DB      $00,$00,$14,$14,$00,$00        ;7C
           DB      $00,$00,$14,$14,$00,$00        ;7D
@@ -105,7 +105,7 @@ MSFONT    DB      $B0,$B0,$C0,$00,$00,$00        ; 30 -  UPPER LEFT FULL
           DB      $00,$00,$3C,$3C,$00,$00        ;81
           DB      $00,$00,$3C,$3C,$00,$00        ;82
 
-*  STAMPS FOR "MS. PAC-MAN" LOGO
+;  STAMPS FOR "MS. PAC-MAN" LOGO
           DB      $04,$05,$05,$06,$06,$06        ;83
           DB      $06,$06,$06,$06,$06,$06        ;84
           DB      $06,$55,$55,$6A,$6A,$6A        ;85
@@ -157,7 +157,7 @@ MSFONT    DB      $B0,$B0,$C0,$00,$00,$00        ; 30 -  UPPER LEFT FULL
           DB      $00,$55,$55,$A9,$A9,$A9        ;B3
 
 
-*  STAMP CHARACTERS
+;  STAMP CHARACTERS
           ;MS RIGHT, CLOSED
 MSCHAR    DB      $08,$00,$0A,$50,$A5,$54,$25,$55,$17,$D5,$15,$55
           DB      $15,$55,$15,$55,$15,$55,$05,$54,$01,$50,$00,$00
@@ -196,7 +196,7 @@ MSCHAR    DB      $08,$00,$0A,$50,$A5,$54,$25,$55,$17,$D5,$15,$55
           DB      $1D,$55,$17,$55,$25,$55,$A5,$54,$0A,$50,$08,$00
 
 
-*  PAC-MAN STAMPS (FOR ANIMATION)
+;  PAC-MAN STAMPS (FOR ANIMATION)
           ;PAC RIGHT, CLOSED
 PACCHAR   DB      $00,$00,$01,$50,$05,$54,$15,$55,$15,$55,$15,$55
           DB      $15,$55,$15,$55,$15,$55,$05,$54,$01,$50,$00,$00
@@ -235,7 +235,7 @@ PACCHAR   DB      $00,$00,$01,$50,$05,$54,$15,$55,$15,$55,$15,$55
           DB      $15,$55,$15,$55,$15,$55,$05,$54,$01,$50,$00,$00
 
 
-* BITMAPS FOR THE MONSTER IN ALL IT'S STATES
+; BITMAPS FOR THE MONSTER IN ALL IT'S STATES
 NRMMONST  DB      $05,$50,$15,$54,$55,$55,$5A,$69,$5B,$6D,$5B,$6D  ;V1 RIGHT
           DB      $55,$55,$55,$55,$55,$55,$55,$55,$55,$55,$44,$11
           DB      $05,$50,$15,$54,$55,$55,$5A,$69,$5B,$6D,$5B,$6D  ;V2 RIGHT
@@ -266,7 +266,7 @@ EYEMONST  DB      $00,$00,$00,$00,$00,$00,$0A,$0A,$2B,$2B,$2B,$2B  ;RIGHT
           DB      $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
 
 
-*  MISCELLANEOUS STAMPS FOR ANIMATION
+;  MISCELLANEOUS STAMPS FOR ANIMATION
 MISCCHAR  DB      $00,$00,$28,$A0,$AA,$A8,$AA,$A8,$AA,$A8,$2A,$A0  ;HEART
           DB      $2A,$A0,$0A,$80,$0A,$80,$02,$00,$02,$00,$00,$00
           DB      $00,$00,$00,$C0,$00,$C0,$00,$C0,$02,$A0,$0A,$A8  ;BAG
@@ -285,7 +285,7 @@ MISCCHAR  DB      $00,$00,$28,$A0,$AA,$A8,$AA,$A8,$AA,$A8,$2A,$A0  ;HEART
           DB      $FF,$F0,$FF,$FC,$FC,$00,$00,$00,$00,$00,$00,$00
 
 
-*  STAMPS FOR FRUIT
+;  STAMPS FOR FRUIT
 FRUITCHR  DB      $00,$00,$3C,$3C,$C3,$C3,$FF,$FF,$33,$CC,$F3,$CF  ;TEDDY BEAR
           DB      $FF,$FF,$FC,$3F,$FC,$3F,$3F,$FC,$0F,$F0,$00,$00
           DB      $00,$00,$3C,$00,$C3,$C0,$03,$30,$03,$0C,$0C,$1C  ;CHERRIES
@@ -304,7 +304,7 @@ FRUITCHR  DB      $00,$00,$3C,$3C,$C3,$C3,$FF,$FF,$33,$CC,$F3,$CF  ;TEDDY BEAR
           DB      $00,$55,$01,$54,$05,$54,$15,$50,$55,$00,$00,$00
 
 
-* NUMBERS FOR EATING FRUIT AND MONSTERS
+; NUMBERS FOR EATING FRUIT AND MONSTERS
 FRUITNUM  DB      $00,$00,$00,$00,$3F,$00,$30,$00,$3F,$00,$03,$FC  ;50
           DB      $3F,$CC,$00,$CC,$00,$CC,$00,$FC,$00,$00,$00,$00
           DB      $00,$00,$00,$00,$30,$00,$F0,$00,$30,$00,$33,$F0  ;100
@@ -331,7 +331,7 @@ MONSTNUM  DB      $00,$00,$00,$00,$00,$2A,$00,$22,$02,$A2,$02,$2A  ;200
           DB      $20,$00,$A0,$00,$20,$00,$2A,$80,$A8,$00,$0A,$80  ;1600
           DB      $08,$80,$0A,$A0,$02,$20,$02,$A8,$00,$88,$00,$A8
 
-* STAMPS FOR CLAPBOARD
+; STAMPS FOR CLAPBOARD
 CLAPBRD   DB      $3F,$FF,$33,$C3,$3F,$0F,$3F,$FF,$30,$00,$30,$00  ;BASE C0
           DB      $30,$00,$30,$00,$30,$00,$30,$00,$30,$00,$3F,$FF
           DB      $FF,$FF,$C3,$C3,$0F,$0F,$FF,$FF,$00,$00,$00,$00  ;BASE C1
